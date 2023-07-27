@@ -1,1 +1,101 @@
+1. Create a new HTML file and add the following code:
+<!DOCTYPE html>
+<html ng-app="ShoppingListCheckOff">
+<head>
+  <title>Shopping List Check Off</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div ng-controller="ShoppingListCheckOffController">
+    <h1>Shopping List Check Off</h1>
+    <div class="list">
+      <h2>To Buy</h2>
+      <ul>
+        <li ng-repeat="item in toBuyItems">
+          {{ item.name }} ({{ item.quantity }})
+          <button ng-click="buyItem(item)">Bought</button>
+        </li>
+      </ul>
+    </div>
+    <div class="list">
+      <h2>Already Bought</h2>
+      <ul>
+        <li ng-repeat="item in alreadyBoughtItems">
+          {{ item.name }} ({{ item.quantity }})
+        </li>
+      </ul>
+    </div>
+  </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+2. Create a new JavaScript file and add the following code:
+JavaScript
+(function () {
+  'use strict';
+
+  angular.module('ShoppingListCheckOff', [])
+    .controller('ShoppingListCheckOffController', ShoppingListCheckOffController);
+
+  ShoppingListCheckOffController.$inject = ['$scope', 'ShoppingListCheckOffService'];
+
+  function ShoppingListCheckOffController($scope, ShoppingListCheckOffService) {
+    $scope.toBuyItems = [
+      { name: 'Milk', quantity: 1 },
+      { name: 'Eggs', quantity: 12 },
+      { name: 'Bread', quantity: 2 },
+    ];
+
+    $scope.alreadyBoughtItems = [];
+
+    $scope.buyItem = function (item) {
+      ShoppingListCheckOffService.buyItem(item);
+    };
+  }
+
+  ShoppingListCheckOffService.$inject = ['$rootScope'];
+
+  function ShoppingListCheckOffService($rootScope) {
+    this.buyItem = function (item) {
+      // Remove the item from the "to buy" list.
+      var toBuyItems = $rootScope.toBuyItems;
+      for (var i = 0; i < toBuyItems.length; i++) {
+        if (toBuyItems[i] === item) {
+          toBuyItems.splice(i, 1);
+          break;
+        }
+      }
+
+      // Add the item to the "already bought" list.
+      var alreadyBoughtItems = $rootScope.alreadyBoughtItems;
+      alreadyBoughtItems.push(item);
+    };
+  }
+
+})();
+
+3.Create a new CSS file and add the following code:
+CSS
+.list {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+4. Save the HTML, JavaScript, and CSS files.
+5. Open the HTML file in a web browser.
+You should see a shopping list with two lists: "To Buy" and "Already Bought". You can add items to the "To Buy" list by
+clicking the "Add Item" button. When you click the "Bought" button next to an item in the "To Buy" list, the item will be moved to the "Already Bought" list.
