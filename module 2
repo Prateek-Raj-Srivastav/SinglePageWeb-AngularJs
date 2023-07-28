@@ -12,7 +12,13 @@
         <h2>To Buy</h2>
         <ul>
           <li ng-repeat="item in toBuyItems">
-            {{ item.name }} ({{ item.quantity }})
+            { item.name } ({ item.quantity })
+            <button ng-click="buyItem(item)">Bought</button>
+            <br />
+            { item.name } ({ item.quantity })
+            <button ng-click="buyItem(item)">Bought</button>
+            <br />
+            { item.name } ({ item.quantity })
             <button ng-click="buyItem(item)">Bought</button>
           </li>
         </ul>
@@ -31,6 +37,7 @@
     <script src="app.js"></script>
   </body>
 </html>
+
 
 
 2. Create a new JavaScript file and add the following code:
@@ -87,11 +94,12 @@ JavaScript
 3.Create a new CSS file and add the following code:
 CSS
 .list {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 h2 {
   margin-top: 0;
+  color: red;
 }
 
 ul {
@@ -100,8 +108,9 @@ ul {
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
+
 4. Save the HTML, JavaScript, and CSS files.
 5. Open the HTML file in a web browser.
 You should see a shopping list with two lists: "To Buy" and "Already Bought". You can add items to the "To Buy" list by
