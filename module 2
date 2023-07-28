@@ -117,4 +117,4 @@ You should see a shopping list with two lists: "To Buy" and "Already Bought". Yo
 clicking the "Add Item" button. When you click the "Bought" button next to an item in the "To Buy" list, the item will be moved to the "Already Bought" list.
 
 To get to the website>
-https://codesandbox.io/s/angular-js-web-page-ygd9xh
+https://codesandbox.io/s/angular-js-web-page-ygd9xh?file=/index.html
