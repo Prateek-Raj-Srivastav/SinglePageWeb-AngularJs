@@ -1,4 +1,4 @@
-# SinglePageWeb-AngularJs
+
 # Single Page Web Applications with AngularJS
 <!DOCTYPE html>
 <html ng-app="ShoppingListCheckOff">
