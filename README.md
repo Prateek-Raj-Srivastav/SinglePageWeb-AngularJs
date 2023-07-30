@@ -38,3 +38,21 @@
     <script src="app.js"></script>
   </body>
 </html>
+
+.list {
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-top: 0;
+  color: red;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}
