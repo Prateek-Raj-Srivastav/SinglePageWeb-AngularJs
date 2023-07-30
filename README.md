@@ -13,13 +13,13 @@
         <h2>To Buy</h2>
         <ul>
           <li ng-repeat="item in toBuyItems">
-            {{ item.name }} ({{ item.quantity }})
+            {"{ item.name }"} ({"{ item.quantity }"})
             <button ng-click="buyItem(item)">Bought</button>
             <br />
-            {{ item.name }} ({{ item.quantity }})
+            {"{ item.name }"} ({"{ item.quantity }"})
             <button ng-click="buyItem(item)">Bought</button>
             <br />
-            {{ item.name }} ({{ item.quantity }})
+            {"{ item.name }"} ({"{ item.quantity }"})
             <button ng-click="buyItem(item)">Bought</button>
           </li>
         </ul>
